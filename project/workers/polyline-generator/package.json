@@ -1,0 +1,23 @@
+{
+  "name": "polyline-generator",
+  "version": "1.0.0",
+  "description": "\"A worker to generate a list of regions for news scraping\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "polyline",
+    "polyline generator",
+    "google maps",
+    "nodejs worker"
+  ],
+  "author": "mary.zam.code@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@mapbox/polyline": "^1.1.1",
+    "dotenv": "^10.0.0",
+    "harperive": "^2.0.1"
+  }
+}
