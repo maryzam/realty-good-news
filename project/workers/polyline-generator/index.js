@@ -9,8 +9,8 @@ for (let lat = -36.92218; lat < -36.79052; lat = lat + offset) {
         const encodedPolyline = polyline.encode([
             [lat, lng],
             [lat, (lng + offset)], 
-            [(lat + offset), (lng + offset)]
-            [(lat + offset), lng],
+            [(lat + offset), (lng + offset)],
+            [(lat + offset), lng]
         ]);
         polylines.push(encodedPolyline);
     }
@@ -21,7 +21,6 @@ const options = {
     records: polylines.map((polyline) => ({
         polyline: polyline,
         status: 0,
-        updated: Date.now()
     }))
 };
 
