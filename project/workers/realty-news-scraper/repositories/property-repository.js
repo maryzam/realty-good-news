@@ -1,20 +1,38 @@
 const dbClient = require('../config/dbconfig');
 
 const updatePropertyInfo = async ({ info }) => {
-    console.log(`Saving data for property ${info.id}.`);
-    
+    console.debug(`Saving data for property ${info.id}.`);
     const options = {
         table: 'property_details',
         records: [ info ]
       };
 
     try {
-        const res = await dbClient.update(options)
-        console.log(`Data for property ${info.id} is saved successfully.`);
+        const res = await dbClient.insert(options)
+        console.debug(`Data for property ${info.id} is saved successfully.`, res);
     } catch(err) {
-        console.log(`Failed to update property details for ${info.id}`, err);
+        console.error(`Failed to update property details for ${info.id}`, err);
     }
-
 };
 
-module.exports = { updatePropertyInfo };
+const saveProblemProperty = async ({ home }) => {
+    const options = {
+        table: 'missing_data_property',
+        records: [ {
+            id: home.id,
+            property_id: home.item_id,
+            url: home.url
+        }]
+    };
+
+    try {
+        await dbClient.insert(options);
+    } catch(error) {
+        console.log(error);
+    }
+};
+
+module.exports = { 
+    updatePropertyInfo,
+    saveProblemProperty
+};
