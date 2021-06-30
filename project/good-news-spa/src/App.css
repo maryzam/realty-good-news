@@ -36,10 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.gallery-wrapper {
-  display: block;
-  width: 80vw;
-  max-width: 500px;
-  max-height: 50vh;
-}

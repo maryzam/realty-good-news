@@ -25,6 +25,7 @@ const getGoodNews = async({
           property_id: property.id,
           sold_on: Date.parse(property.price_on),
           price: property.price || property.estimated_value,
+          estimated_value: property.estimated_value,
           is_accurate_price: !!property.price,
           land_use: property.land_use,
           num_bedrooms: property.num_bedrooms,
